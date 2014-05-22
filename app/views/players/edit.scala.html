@@ -1,0 +1,11 @@
+@(player: Player, playerForm: Form[String])
+@import helper._
+
+@main("Edit Player") {
+  <h1>@player.name</h1>
+
+  @form(routes.PlayersController.update(player.id.get)) {
+    @inputText(playerForm("name"))
+    <input type="submit" value="Update" />
+  }
+}

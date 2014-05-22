@@ -1,0 +1,13 @@
+@(player: Player)
+
+@main("Viewing Player") {
+  <h1>@player.name</h1>
+  <ul>
+    <li>Wins: 0</li>
+    <li>Wins: 0</li>
+    <li>Wins: 0</li>
+    <li><a href=@routes.PlayersController.edit(player.id.get)>Edit</a></li>
+    <li><a href=@routes.PlayersController.delete(player.id.get)>Delete</a></li>
+  </ul>
+}
+

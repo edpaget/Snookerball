@@ -1,0 +1,30 @@
+@(players: List[Player])
+
+@main("All Players") {
+  <h1>All Players</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Wins</th>
+        <th>Loses</th>
+        <th>Winning %</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(player <- players) {
+        <tr>
+          <td>@player.name</td>
+          <td>0</td>
+          <td>0</td>
+          <td>.000</td>
+          <td><a href=@routes.PlayersController.edit(player.id.get)>Edit</a> | <a href=@routes.PlayersController.delete(player.id.get)>Delete</a></td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <p> <a href=@routes.PlayersController.newPlayer>Add Player</a> </p>
+}

@@ -1,0 +1,10 @@
+@(playerForm: Form[String])
+@import helper._
+
+@main("New Player") {
+  <h1>New Player</h1>
+  @form(routes.PlayersController.create) {
+    @inputText(playerForm("name"))
+    <input type="submit" value="Update" />
+  }
+}
