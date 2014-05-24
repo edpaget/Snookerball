@@ -20,3 +20,13 @@ PUT     /players/:id                controllers.PlayersController.update(id: Lon
 DELETE  /players/:id                controllers.PlayersController.delete(id: Long)
 GET     /players/:id                controllers.PlayersController.show(id: Long)
 GET     /players/:id/edit           controllers.PlayersController.edit(id: Long)
+
+# Tournaments
+
+GET     /tournaments                controllers.TournamentsController.index
+POST    /tournaments                controllers.TournamentsController.create
+GET     /tournaments/new            controllers.TournamentsController.newPlayer
+PUT     /tournaments/:id            controllers.TournamentsController.update(id: Long)
+DELETE  /tournaments/:id            controllers.TournamentsController.delete(id: Long)
+GET     /tournaments/:id            controllers.TournamentsController.show(id: Long)
+GET     /tournaments/:id/edit       controllers.TournamentsController.edit(id: Long)
