@@ -1,10 +1,11 @@
 @(playerForm: Form[String])
 @import helper._
+@import helper.twitterBootstrap._
 
 @main("New Player") {
   <h1>New Player</h1>
   @form(routes.PlayersController.create) {
     @inputText(playerForm("name"))
-    <input type="submit" value="Update" />
+    <button class="btn" type="submit" value="Update">Submit</button>
   }
 }

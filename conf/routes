@@ -8,13 +8,15 @@ GET     /                           controllers.Application.index
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
+# Use Webjars
+GET     /webjars/*file              controllers.WebJarAssets.at(file)
+
 # Players
 
 GET     /players                    controllers.PlayersController.index
-GET     /players/new                controllers.PlayersController.newPlayer
 POST    /players                    controllers.PlayersController.create
+GET     /players/new                controllers.PlayersController.newPlayer
 PUT     /players/:id                controllers.PlayersController.update(id: Long)
 DELETE  /players/:id                controllers.PlayersController.delete(id: Long)
 GET     /players/:id                controllers.PlayersController.show(id: Long)
 GET     /players/:id/edit           controllers.PlayersController.edit(id: Long)
-GET     /players/:id/delete         controllers.PlayersController.delete(id: Long)
