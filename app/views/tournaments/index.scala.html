@@ -1,0 +1,27 @@
+@(tourneys: List[Tournament])
+
+@main("All Tournaments") {
+<h1>All Tournaments</h1>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Winner</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(tourney <- tourneys) {
+      <tr id="tourney-@tourney.id">
+        <td>@tourney.displayName</td>
+        <td>Ed Paget</td>
+        <td><a href=@routes.TournamentsController.edit(tourney.name)>Edit</a> | <a data-id="@tourney.id" class="delete" href=@routes.TournamentsController.delete(tourney.name)>Delete</a></td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+<p> <a href=@routes.TournamentsController.newTournament>Add Tournament</a> </p>
+}

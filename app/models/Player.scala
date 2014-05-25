@@ -11,7 +11,7 @@ object Players {
 
   lazy val players = TableQuery[Players]
 
-  def list: List[Player] =  DB withSession { implicit session =>
+  def list: List[Player] = DB withSession { implicit session =>
     players.list
   }
 

@@ -1,0 +1,15 @@
+@(tourneyForm: Form[Tournament])
+@import helper._
+@import helper.twitterBootstrap._
+
+@main("New Tournament") {
+  <h1>New Tournament</h1>
+  @form(routes.TournamentsController.create) {
+    @inputText(tourneyForm("name"))
+    @inputText(tourneyForm("displayName"))
+    @select(tourneyForm("tourneyType"), Seq(
+      ("double_elimination", "Double Elimination")
+    ))
+    <button class="btn" type="submit" value="Update">Submit</button>
+  }
+}

@@ -25,8 +25,8 @@ GET     /players/:id/edit           controllers.PlayersController.edit(id: Long)
 
 GET     /tournaments                controllers.TournamentsController.index
 POST    /tournaments                controllers.TournamentsController.create
-GET     /tournaments/new            controllers.TournamentsController.newPlayer
-PUT     /tournaments/:id            controllers.TournamentsController.update(id: Long)
-DELETE  /tournaments/:id            controllers.TournamentsController.delete(id: Long)
-GET     /tournaments/:id            controllers.TournamentsController.show(id: Long)
-GET     /tournaments/:id/edit       controllers.TournamentsController.edit(id: Long)
+GET     /tournaments/new            controllers.TournamentsController.newTournament
+PUT     /tournaments/:name          controllers.TournamentsController.update(name: String)
+DELETE  /tournaments/:name          controllers.TournamentsController.delete(name: String)
+GET     /tournaments/:name          controllers.TournamentsController.show(name: String)
+GET     /tournaments/:name/edit     controllers.TournamentsController.edit(name: String)
