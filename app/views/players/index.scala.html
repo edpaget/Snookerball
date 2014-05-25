@@ -16,12 +16,12 @@
       </thead>
       <tbody>
         @for(player <- players) {
-          <tr>
+          <tr id="player-@player.id">
             <td>@player.name</td>
             <td>0</td>
             <td>0</td>
             <td>.000</td>
-            <td><a href=@routes.PlayersController.edit(player.id.get)>Edit</a> | <a href=@routes.PlayersController.delete(player.id.get)>Delete</a></td>
+            <td><a href=@routes.PlayersController.edit(player.id.get)>Edit</a> | <a data-id="@player.id" class="delete" href=@routes.PlayersController.delete(player.id.get)>Delete</a></td>
           </tr>
         }
       </tbody>
