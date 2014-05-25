@@ -28,7 +28,7 @@ object PlayersController extends Controller {
 
   def edit(id: Long) = Action {
     (Players.byId(id)) match {
-      case Some(p: Player) => Ok(views.html.players.edit(p, playerForm))
+      case Some(p: Player) => Ok(views.html.players.edit(p, playerForm.fill(p.name)))
       case None => NotFound("Player not Found")
     }
   }
@@ -37,24 +37,21 @@ object PlayersController extends Controller {
     Ok(views.html.players.newPlayer(playerForm))
   }
 
-  def update(id: Long) = Action {
-    (Players.byId(id)) match {
-      case Some(p: Player) => Ok(views.html.players.edit(p, playerForm))
-      case None => NotFound("Player not Found")
-    }
+  def update(id: Long) = Action { implicit request =>
+    val name = playerForm.bindFromRequest.get
+    Players.update(id, name)
+    Status(204)
   }
 
   def create = Action { implicit request =>
     val name = playerForm.bindFromRequest.get
-    
     Players.create(name)
-
-    Redirect(routes.PlayersController.index)
+    Status(201)
   }
 
   def delete(id: Long) = Action {
     Players.delete(id)
-    Redirect(routes.PlayersController.index)
+    Status(202)
   }
 
 }

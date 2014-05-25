@@ -27,4 +27,8 @@ object Players {
   def delete(id: Long) = DB withSession { implicit session =>
     players.filter{ _.id === id}.delete
   }
+
+  def update(id: Long, name: String) = DB withSession { implicit session =>
+    players.filter{ _.id === id }.update(new Player(new Some(id), name))
+  }
 }
